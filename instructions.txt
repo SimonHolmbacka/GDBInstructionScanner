@@ -1,0 +1,24 @@
+ 
+build the file with the -g flag
+$ gcc -g test.c -o myprog
+
+start GDB and load the binary file
+$gdb myprog
+
+set breakpoint where you want your instruction counts to start
+it can be set as per function name or as line number
+$(gdb)b main
+
+run to this line
+$(gdb)r
+
+load the python script which counts instructions
+$(gdb)source ci.py
+
+optionally set the breakpoint where you want the instruction count to end
+$(gdb)b 1023
+
+run the python script (this can take a long long time...)
+$(gdb)ci
+
+After it is completed, the complete instructions are in the file instructionseq.txt
